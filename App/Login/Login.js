@@ -25,23 +25,17 @@ export default class Login extends Component {
 
             <View style={styles.container}>
                 <TopNavigator
-                    title='这个是标题'
+                    title='登录'
 
-                    rightItemTitle='按钮'
+                    rightItemTitle='注册'
                     rightTextColor='#3393F2'
                     leftItemFunc={this._leftItemAction.bind(this)}
                     rightItemFunc={this._rightItemAction.bind(this)}/>
-                <View style={{flex: 1}}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.ios.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Press Cmd+R to reload,{'\n'}
-                    Cmd+D or shake for dev menu
-                </Text>
+                <View style={styles.top}>
+             <Text>sdfsdf</Text>
+            </View>
+                <View style={styles.bottom}>
+                    <Text>sdfsdf</Text>
                 </View>
             </View>
         );
@@ -51,9 +45,21 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+
         // justifyContent: 'center',
         // alignItems: 'center',
         backgroundColor: '#F5FCFF',
+        flexDirection: 'column'
+    },
+
+    top: {
+        flex: 1,
+        backgroundColor:'red',
+        flexDirection:'column',
+        justifyContent:'flex-start'
+    },
+    bottom: {
+        flex: 1,backgroundColor:'blue',flexDirection:'column',justifyContent:'flex-end'
     },
     welcome: {
         fontSize: 20,
@@ -61,8 +67,10 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     instructions: {
+
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
+        alignSelf: 'flex-end'
     },
 });
