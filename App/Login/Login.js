@@ -12,13 +12,25 @@ export default class Login extends Component {
     componentWillMount() {
 
     }
+    _leftItemAction() {
+        console.log('左侧按钮点击了');
+    }
 
+    _rightItemAction() {
+        console.log('右侧按钮点击了');
+    }
 
     render() {
         return (
 
             <View style={styles.container}>
-                <TopNavigator name='登录'/>
+                <TopNavigator
+                    title='这个是标题'
+
+                    rightItemTitle='按钮'
+                    rightTextColor='#3393F2'
+                    leftItemFunc={this._leftItemAction.bind(this)}
+                    rightItemFunc={this._rightItemAction.bind(this)}/>
                 <View style={{flex: 1}}>
                 <Text style={styles.welcome}>
                     Welcome to React Native!
