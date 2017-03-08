@@ -6,7 +6,8 @@ import {
     View,
     TextInput,
     Button,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert,
 } from 'react-native';
 
 import TopNavigator from '../Common/TopNavigator'
@@ -57,12 +58,16 @@ export default class Login extends Component {
                     </View>
                     <View style={styles.forgetPassword}>
                         <TouchableOpacity
-
-                            onPress={() => this.jumpToMain()}>
+                            onPress={() => this.onPress()}>
                           <Text style={{color:'blue',fontSize:14}}>忘记密码?</Text>
                         </TouchableOpacity>
 
                     </View>
+                    <TouchableOpacity
+                        onPress={() => this.onPress()} style={styles.loginButton}>
+                            
+                    </TouchableOpacity>
+
                 </View>
                 <View style={styles.bottom}>
                     <Text>sdfsdf</Text>
@@ -122,11 +127,23 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         fontSize: 15,
     },
+    loginButton:{
+      backgroundColor:'gray',
+        width:ScreenWidth-20,
+        height:40,
+        alignSelf:'center',
+        borderRadius:5,
+        marginTop:10,
+    },
     forgetPassword:{
         alignSelf:'flex-end',
         margin: 10,
 
+
     },
+
+
+
     welcome: {
         fontSize: 20,
         textAlign: 'center',
