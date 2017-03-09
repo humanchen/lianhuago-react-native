@@ -8,6 +8,7 @@ import {
     Button,
     TouchableOpacity,
     Alert,
+    Image,
 } from 'react-native';
 
 import TopNavigator from '../Common/TopNavigator'
@@ -59,18 +60,48 @@ export default class Login extends Component {
                     <View style={styles.forgetPassword}>
                         <TouchableOpacity
                             onPress={() => this.onPress()}>
-                          <Text style={{color:'blue',fontSize:14}}>忘记密码?</Text>
+                            <Text style={{color:'blue',fontSize:14}}>忘记密码?</Text>
                         </TouchableOpacity>
 
                     </View>
                     <TouchableOpacity
                         onPress={() => this.onPress()} style={styles.loginButton}>
-                            
+                        <Text style={{color:'white',fontSize:14,textAlign:'center'}}>登录</Text>
                     </TouchableOpacity>
 
                 </View>
                 <View style={styles.bottom}>
-                    <Text>sdfsdf</Text>
+                    <View style={styles.text2}>
+                        <View style={styles.smallline}>
+
+                        </View>
+                        <Text style={{color:'gray',fontSize:15,textAlign:'center'}}>
+                            第三方快捷登录方式
+                        </Text>
+                        <View style={styles.smallline}>
+
+                        </View>
+                    </View>
+
+
+                    <View style={styles.bottomgroup}>
+                        <View style={{position:'absolute',top:30,left: 15,justifyContent:'center'}}>
+                            <Image style={styles.imageStyle}
+                                   source={require('../Image/umsocial_wechat.png')}/>
+                            <Text style={{color:'black',fontSize:11,textAlign:'center'}}>
+                                微信登录
+                            </Text>
+                        </View>
+
+                        <View style={{alignSelf:'center',marginTop:30,justifyContent:'center'}}>
+                            <Image style={styles.imageStyle}
+                                   source={require('../Image/umsocial_qq.png')}/>
+                            <Text style={{color:'black',fontSize:11,textAlign:'center'}}>
+                                QQ登录
+                            </Text>
+                        </View>
+
+                    </View>
                 </View>
             </View>
         );
@@ -121,33 +152,51 @@ const styles = StyleSheet.create({
         height: 1,
         width: ScreenWidth,
     },
-    inputText:{
-        width:ScreenWidth-60-10-10,
-        height:30,
-        alignSelf:'center',
+    inputText: {
+        width: ScreenWidth - 60 - 10 - 10,
+        height: 30,
+        alignSelf: 'center',
         fontSize: 15,
     },
-    loginButton:{
-      backgroundColor:'gray',
-        width:ScreenWidth-20,
-        height:40,
-        alignSelf:'center',
-        borderRadius:5,
-        marginTop:10,
+    loginButton: {
+        backgroundColor: 'gray',
+        width: ScreenWidth - 20,
+        height: 40,
+        alignSelf: 'center',
+
+        borderRadius: 5,
+        marginTop: 10,
+        justifyContent: 'center',
     },
-    forgetPassword:{
-        alignSelf:'flex-end',
+    forgetPassword: {
+        alignSelf: 'flex-end',
         margin: 10,
-
-
     },
-
-
-
+    text2:{
+         flexDirection:'row',
+         justifyContent:'space-between',
+    },
+    smallline:{
+        backgroundColor:'gray',
+        alignSelf:'center',
+        width:80,
+        height:0.5,
+        marginLeft:10,
+        marginRight:10,
+    },
+    bottomgroup:{
+      flexDirection:'row',
+        justifyContent:'center',
+        marginBottom:30
+    },
     welcome: {
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
+    },
+    imageStyle:{
+        width:40,
+        height:40
     },
     instructions: {
 
