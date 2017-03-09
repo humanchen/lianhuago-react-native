@@ -111,6 +111,7 @@ export default class Login extends Component {
                         </View>
 
                     </View>
+
                 </View>
             </View>
         );
@@ -123,11 +124,14 @@ const styles = StyleSheet.create({
 
         // justifyContent: 'center',
         // alignItems: 'center',
+
         backgroundColor: '#e6e6e6',
+
         flexDirection: 'column'
     },
 
     top: {
+
 
         flex: 1,
         flexDirection: 'column',
@@ -197,6 +201,7 @@ const styles = StyleSheet.create({
       flexDirection:'row',
         justifyContent:'center',
         marginBottom:30
+
     },
     welcome: {
         fontSize: 20,
