@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 import TopNavigator from '../Common/TopNavigator'
-
+import Register from '../Register/Register'
 
 var Dimensions = require('Dimensions');
 var ScreenWidth = Dimensions.get('window').width;
@@ -28,6 +28,15 @@ export default class Login extends Component {
 
     _rightItemAction() {
         console.log('右侧按钮点击了');
+        this.props.navigator.push({
+            component: Register,    // 要跳转的版块
+            passProps: {
+                name: '智通三千'
+            },
+            type: 'Normal'
+        })
+
+
     }
 
 
