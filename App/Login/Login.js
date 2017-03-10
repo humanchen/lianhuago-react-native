@@ -29,6 +29,7 @@ export default class Login extends Component {
         //初始状态
         this.state = {
             basicColor:'gray',
+            logindisable:true,
         };
     }
 
@@ -63,12 +64,16 @@ export default class Login extends Component {
             console.log("改变状态");
             this.setState({
                 basicColor:'red',
+                logindisable:false,
             });
+
         }
         else {
             this.setState({
                 basicColor:'gray',
+                logindisable:true,
             });
+
         }
     }
 
@@ -105,7 +110,7 @@ export default class Login extends Component {
 
                     </View>
                     <TouchableOpacity
-                        onPress={() => this.onPress()} style={[styles.loginButton,{backgroundColor:this.state.basicColor}]}>
+                        onPress={() => this.onPress()} style={[styles.loginButton,{backgroundColor:this.state.basicColor}] } ref="loginbtn" disabled={this.state.logindisable}>
                         <Text style={{color:'white',fontSize:14,textAlign:'center'}}>登录</Text>
                     </TouchableOpacity>
 
