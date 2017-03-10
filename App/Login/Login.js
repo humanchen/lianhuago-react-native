@@ -55,7 +55,19 @@ export default class Login extends Component {
 
     onPress() {
         // Alert.alert('Button has been pressed!');
-        this.refs.toast.show('hello world!',DURATION.LENGTH_LONG);
+        this.refs.toast.show('请求数据',DURATION.LENGTH_LONG);
+
+        fetch('https://lotusgo.cplotus-gz.com/api-1.8/app/style', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8',
+            },
+            body: 'access_token=acb485c8-e74f-4f5b-a0da-613641708a48&device_id=C4BBE917-20FF-44E6-844A-0628EC6C096B&outlet_no=096'
+        }).then(function(response){
+            this.refs.toast.show(response,DURATION.LENGTH_LONG);
+        })
+
+
     }
 
     //改变手机号触发
