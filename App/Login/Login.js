@@ -22,6 +22,17 @@ export default class Login extends Component {
 
     }
 
+    constructor(props) {
+        super(props);
+        console.log('Login props : ', this.props);
+
+        //初始状态
+        this.state = {
+            basicColor:'gray',
+        };
+    }
+
+
     _leftItemAction() {
         console.log('左侧按钮点击了');
     }
@@ -44,6 +55,23 @@ export default class Login extends Component {
         Alert.alert('Button has been pressed!');
     }
 
+    //改变手机号触发
+    handleLoginPhoneUpdateChange(text) {
+        console.log("loginPhone change text : ", text);
+
+        if (text.length > 0) {
+            console.log("改变状态");
+            this.setState({
+                basicColor:'red',
+            });
+        }
+        else {
+            this.setState({
+                basicColor:'gray',
+            });
+        }
+    }
+
     render() {
         return (
 
@@ -58,7 +86,9 @@ export default class Login extends Component {
                     <View style={styles.inputContainer}>
                         <View style={styles.inputBox}>
                             <Text style={styles.label}>手机号</Text>
-                            <TextInput style={styles.inputText} placeholder='请输入手机号'></TextInput>
+                            <TextInput style={styles.inputText}
+                                       placeholder='请输入手机号'
+                                       onChangeText={(text) => this.handleLoginPhoneUpdateChange(text)}></TextInput>
                         </View>
                         <View style={styles.line}></View>
                         <View style={styles.inputBox}>
@@ -66,6 +96,7 @@ export default class Login extends Component {
                             <TextInput style={styles.inputText} placeholder='请输入密码'></TextInput>
                         </View>
                     </View>
+
                     <View style={styles.forgetPassword}>
                         <TouchableOpacity
                             onPress={() => this.onPress()}>
@@ -74,7 +105,7 @@ export default class Login extends Component {
 
                     </View>
                     <TouchableOpacity
-                        onPress={() => this.onPress()} style={styles.loginButton}>
+                        onPress={() => this.onPress()} style={[styles.loginButton,{backgroundColor:this.state.basicColor}]}>
                         <Text style={{color:'white',fontSize:14,textAlign:'center'}}>登录</Text>
                     </TouchableOpacity>
 
@@ -145,7 +176,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         height: 81,
         backgroundColor: 'white',
-        marginTop: 20,
+        marginVertical:10,
     },
     inputBox: {
         flex: 1,
@@ -174,7 +205,7 @@ const styles = StyleSheet.create({
     loginButton: {
         backgroundColor: 'gray',
         width: ScreenWidth - 20,
-        height: 40,
+        height: 35,
         alignSelf: 'center',
 
         borderRadius: 5,
