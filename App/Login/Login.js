@@ -13,6 +13,7 @@ import {
 
 import TopNavigator from '../Common/TopNavigator'
 import Register from '../Register/Register'
+import Toast, {DURATION} from 'react-native-easy-toast'
 
 var Dimensions = require('Dimensions');
 var ScreenWidth = Dimensions.get('window').width;
@@ -53,7 +54,8 @@ export default class Login extends Component {
 
 
     onPress() {
-        Alert.alert('Button has been pressed!');
+        // Alert.alert('Button has been pressed!');
+        this.refs.toast.show('hello world!',DURATION.LENGTH_LONG);
     }
 
     //改变手机号触发
@@ -149,6 +151,7 @@ export default class Login extends Component {
                     </View>
 
                 </View>
+                <Toast ref="toast"/>
             </View>
         );
     }
