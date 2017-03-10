@@ -29,8 +29,8 @@ export default class Login extends Component {
 
         //初始状态
         this.state = {
-            basicColor:'gray',
-            logindisable:true,
+            basicColor: 'gray',
+            logindisable: true,
         };
     }
 
@@ -55,7 +55,27 @@ export default class Login extends Component {
 
     onPress() {
         // Alert.alert('Button has been pressed!');
-        this.refs.toast.show('hello world!',DURATION.LENGTH_LONG);
+
+        this.refs.toast.show('请求数据', DURATION.LENGTH_LONG);
+        console.log('请求数据');
+        fetch('http://www.pintasty.cn/home/homedynamic', {
+            method: 'POST',
+            headers: {
+                // 'Content-Type': 'application/json;charset=UTF-8',
+                'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJVLTliZGJhNjBjMjZiMDQwZGJiMTMwYWRhYWVlN2FkYTg2IiwiZXhwaXJhdGlvblRpbWUiOjE0NzUxMTg4ODU4NTd9.ImbjXRFYDNYFPtK2_Q2jffb2rc5DhTZSZopHG_DAuNU'
+            },
+            body:JSON.stringify({ //参数
+                'start': '0',
+                'limit': '20',
+                'isNeedCategory': true,
+                'lastRefreshTime': '2016-09-25 09:45:12'
+            })
+        }).then((response) => response.json())
+            .then((responseData) => {
+                  // this.refs.toast.show(responseData, DURATION.LENGTH_LONG);
+            }).catch((error)=> {
+            alert(error);
+        });
     }
 
     //改变手机号触发
@@ -65,15 +85,15 @@ export default class Login extends Component {
         if (text.length > 0) {
             console.log("改变状态");
             this.setState({
-                basicColor:'red',
-                logindisable:false,
+                basicColor: 'red',
+                logindisable: false,
             });
 
         }
         else {
             this.setState({
-                basicColor:'gray',
-                logindisable:true,
+                basicColor: 'gray',
+                logindisable: true,
             });
 
         }
@@ -112,7 +132,9 @@ export default class Login extends Component {
 
                     </View>
                     <TouchableOpacity
-                        onPress={() => this.onPress()} style={[styles.loginButton,{backgroundColor:this.state.basicColor}] } ref="loginbtn" disabled={this.state.logindisable}>
+                        onPress={() => this.onPress()}
+                        style={[styles.loginButton,{backgroundColor:this.state.basicColor}] } ref="loginbtn"
+                        disabled={this.state.logindisable}>
                         <Text style={{color:'white',fontSize:14,textAlign:'center'}}>登录</Text>
                     </TouchableOpacity>
 
@@ -184,7 +206,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         height: 81,
         backgroundColor: 'white',
-        marginVertical:10,
+        marginVertical: 10,
     },
     inputBox: {
         flex: 1,
@@ -224,22 +246,22 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         margin: 10,
     },
-    text2:{
-         flexDirection:'row',
-         justifyContent:'space-between',
+    text2: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
-    smallline:{
-        backgroundColor:'gray',
-        alignSelf:'center',
-        width:80,
-        height:0.5,
-        marginLeft:10,
-        marginRight:10,
+    smallline: {
+        backgroundColor: 'gray',
+        alignSelf: 'center',
+        width: 80,
+        height: 0.5,
+        marginLeft: 10,
+        marginRight: 10,
     },
-    bottomgroup:{
-      flexDirection:'row',
-        justifyContent:'center',
-        marginBottom:30
+    bottomgroup: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 30
 
     },
     welcome: {
@@ -247,9 +269,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
-    imageStyle:{
-        width:40,
-        height:40
+    imageStyle: {
+        width: 40,
+        height: 40
     },
     instructions: {
 
