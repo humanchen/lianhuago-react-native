@@ -17,7 +17,7 @@ import Toast, {DURATION} from 'react-native-easy-toast'
 
 var Dimensions = require('Dimensions');
 var ScreenWidth = Dimensions.get('window').width;
-
+var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
 export default class Login extends Component {
     componentWillMount() {
 
@@ -58,24 +58,16 @@ export default class Login extends Component {
 
         this.refs.toast.show('请求数据', DURATION.LENGTH_LONG);
         console.log('请求数据');
-        fetch('http://www.pintasty.cn/home/homedynamic', {
-            method: 'POST',
-            headers: {
-                // 'Content-Type': 'application/json;charset=UTF-8',
-                'token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJVLTliZGJhNjBjMjZiMDQwZGJiMTMwYWRhYWVlN2FkYTg2IiwiZXhwaXJhdGlvblRpbWUiOjE0NzUxMTg4ODU4NTd9.ImbjXRFYDNYFPtK2_Q2jffb2rc5DhTZSZopHG_DAuNU'
-            },
-            body:JSON.stringify({ //参数
-                'start': '0',
-                'limit': '20',
-                'isNeedCategory': true,
-                'lastRefreshTime': '2016-09-25 09:45:12'
-            })
-        }).then((response) => response.json())
+        fetch(REQUEST_URL)
+            .then((response) => response.json())
             .then((responseData) => {
-                  // this.refs.toast.show(responseData, DURATION.LENGTH_LONG);
-            }).catch((error)=> {
-            alert(error);
-        });
+                // alert(responseData.movies)
+                // this.refs.toast.show(responseData, DURATION.LENGTH_LONG);
+                var movie = responseData.movies[0];
+                this.refs.toast.show(movie.title, DURATION.LENGTH_LONG);
+            })
+        ;
+
     }
 
     //改变手机号触发
