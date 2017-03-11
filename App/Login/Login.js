@@ -9,15 +9,19 @@ import {
     TouchableOpacity,
     Alert,
     Image,
+    AsyncStorage
 } from 'react-native';
 
 import TopNavigator from '../Common/TopNavigator'
 import Register from '../Register/Register'
 import Toast, {DURATION} from 'react-native-easy-toast'
+// import userDefaults from 'react-native-user-defaults'
 
 var Dimensions = require('Dimensions');
 var ScreenWidth = Dimensions.get('window').width;
 var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json';
+var phone='';
+var password='';
 export default class Login extends Component {
     componentWillMount() {
 
@@ -53,27 +57,65 @@ export default class Login extends Component {
     }
 
 
-    onPress() {
-        // Alert.alert('Button has been pressed!');
+    submit() {
 
+        if(phone.length==0 || password.length==0){
+            this.refs.toast.show('请输入手机号和密码', DURATION.LENGTH_LONG);
+            return;
+        }
         this.refs.toast.show('请求数据', DURATION.LENGTH_LONG);
-        console.log('请求数据');
-        fetch(REQUEST_URL)
-            .then((response) => response.json())
-            .then((responseData) => {
-                // alert(responseData.movies)
-                // this.refs.toast.show(responseData, DURATION.LENGTH_LONG);
-                var movie = responseData.movies[0];
-                this.refs.toast.show(movie.title, DURATION.LENGTH_LONG);
-            })
-        ;
+
+        // fetch(REQUEST_URL)
+        //     .then((response) => response.json())
+        //     .then((responseData) => {
+        //         // alert(responseData.movies)
+        //         // this.refs.toast.show(responseData, DURATION.LENGTH_LONG);
+        //         var movie = responseData.movies[0];
+        //         this.refs.toast.show(movie.title, DURATION.LENGTH_LONG);
+        //     })
+        // ;
+
+        let formData = new FormData();
+        formData.append("device_id","C4BBE917-20FF-44E6-844A-0628EC6C096B");
+        formData.append("mobile",phone);
+        formData.append("password",password);
+        // formData.append("access_token","d7a8d81d-9150-4e95-b2d5-756a5f4e76be");
+        // formData.append("newest_message_time","0");
+        // formData.append("outlet_no","096");
+        fetch('https://lotusgo.cplotus-gz.com/api-1.8/user/login' , {
+            method: 'POST',
+            headers: { "Content-Type": "application/json;charset=UTF-8"},
+            body: formData
+        }).then((response) => {
+            if (response.ok) {
+                return(response.json());
+                // var  accessToken= response.json().message;
+                // userDefaults.set(accessToken, "accessToken")
+                //     .then(data => this.refs.toast.show(data, DURATION.LENGTH_LONG));
+            }
+        }).then((json) => {
+            // alert(json.message);
+            // alert(JSON.stringify(json));
+            var  accessToken= json.data.access_token;
+            AsyncStorage.setItem('accessToken',accessToken).then(
+                ()=>{   //成功的操作
+
+                    this.refs.toast.show(accessToken, DURATION.LENGTH_LONG);
+                },
+            );
+
+        }).catch((error) => {
+            console.error(error);
+        });
 
     }
 
     //改变手机号触发
     handleLoginPhoneUpdateChange(text) {
-        console.log("loginPhone change text : ", text);
+        // console.log("loginPhone change text : ", text);
 
+        this.refs.toast.show(text, DURATION.LENGTH_LONG);
+        phone=text;
         if (text.length > 0) {
             console.log("改变状态");
             this.setState({
@@ -107,24 +149,25 @@ export default class Login extends Component {
                             <Text style={styles.label}>手机号</Text>
                             <TextInput style={styles.inputText}
                                        placeholder='请输入手机号'
-                                       onChangeText={(text) => this.handleLoginPhoneUpdateChange(text)}></TextInput>
+                                       onChangeText={(text) => this.handleLoginPhoneUpdateChange(text)} ref="phoneText" maxLength={11}></TextInput>
                         </View>
                         <View style={styles.line}></View>
                         <View style={styles.inputBox}>
                             <Text style={styles.label}>密码</Text>
-                            <TextInput style={styles.inputText} placeholder='请输入密码'></TextInput>
+                            <TextInput style={styles.inputText} placeholder='请输入密码' ref="passwordText" password="true"
+                                       onChangeText={(text) => password=text} ></TextInput>
                         </View>
                     </View>
 
                     <View style={styles.forgetPassword}>
                         <TouchableOpacity
-                            onPress={() => this.onPress()}>
+                            onPress={() => this.submit()}>
                             <Text style={{color:'blue',fontSize:14}}>忘记密码?</Text>
                         </TouchableOpacity>
 
                     </View>
                     <TouchableOpacity
-                        onPress={() => this.onPress()}
+                        onPress={() => this.submit()}
                         style={[styles.loginButton,{backgroundColor:this.state.basicColor}] } ref="loginbtn"
                         disabled={this.state.logindisable}>
                         <Text style={{color:'white',fontSize:14,textAlign:'center'}}>登录</Text>
@@ -223,6 +266,7 @@ const styles = StyleSheet.create({
         height: 30,
         alignSelf: 'center',
         fontSize: 15,
+
     },
     loginButton: {
         backgroundColor: 'gray',
