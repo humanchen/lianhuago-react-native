@@ -14,6 +14,8 @@ import {
 
 import TopNavigator from '../Common/TopNavigator'
 import Register from '../Register/Register'
+import Main from '../Main/Main'
+
 import Toast, {DURATION} from 'react-native-easy-toast'
 // import userDefaults from 'react-native-user-defaults'
 
@@ -59,11 +61,11 @@ export default class Login extends Component {
 
     submit() {
 
-        if(phone.length==0 || password.length==0){
-            this.refs.toast.show('请输入手机号和密码', DURATION.LENGTH_LONG);
-            return;
-        }
-        this.refs.toast.show('请求数据', DURATION.LENGTH_LONG);
+        // if(phone.length==0 || password.length==0){
+        //     this.refs.toast.show('请输入手机号和密码', DURATION.LENGTH_LONG);
+        //     return;
+        // }
+        // this.refs.toast.show('请求数据', DURATION.LENGTH_LONG);
 
         // fetch(REQUEST_URL)
         //     .then((response) => response.json())
@@ -75,39 +77,52 @@ export default class Login extends Component {
         //     })
         // ;
 
-        let formData = new FormData();
-        formData.append("device_id","C4BBE917-20FF-44E6-844A-0628EC6C096B");
-        formData.append("mobile",phone);
-        formData.append("password",password);
-        // formData.append("access_token","d7a8d81d-9150-4e95-b2d5-756a5f4e76be");
-        // formData.append("newest_message_time","0");
-        // formData.append("outlet_no","096");
-        fetch('https://lotusgo.cplotus-gz.com/api-1.8/user/login' , {
-            method: 'POST',
-            headers: { "Content-Type": "application/json;charset=UTF-8"},
-            body: formData
-        }).then((response) => {
-            if (response.ok) {
-                return(response.json());
-                // var  accessToken= response.json().message;
-                // userDefaults.set(accessToken, "accessToken")
-                //     .then(data => this.refs.toast.show(data, DURATION.LENGTH_LONG));
-            }
-        }).then((json) => {
-            // alert(json.message);
-            // alert(JSON.stringify(json));
-            var  accessToken= json.data.access_token;
-            AsyncStorage.setItem('accessToken',accessToken).then(
-                ()=>{   //成功的操作
-
-                    this.refs.toast.show(accessToken, DURATION.LENGTH_LONG);
-                },
-            );
-
-        }).catch((error) => {
-            console.error(error);
-        });
-
+        // let formData = new FormData();
+        // formData.append("device_id","C4BBE917-20FF-44E6-844A-0628EC6C096B");
+        // formData.append("mobile",phone);
+        // formData.append("password",password);
+        // // formData.append("access_token","d7a8d81d-9150-4e95-b2d5-756a5f4e76be");
+        // // formData.append("newest_message_time","0");
+        // // formData.append("outlet_no","096");
+        // fetch('https://lotusgo.cplotus-gz.com/api-1.8/user/login' , {
+        //     method: 'POST',
+        //     headers: { "Content-Type": "application/json;charset=UTF-8"},
+        //     body: formData
+        // }).then((response) => {
+        //     if (response.ok) {
+        //         return(response.json());
+        //         // var  accessToken= response.json().message;
+        //         // userDefaults.set(accessToken, "accessToken")
+        //         //     .then(data => this.refs.toast.show(data, DURATION.LENGTH_LONG));
+        //     }
+        // }).then((json) => {
+        //     // alert(json.message);
+        //     // alert(JSON.stringify(json));
+        //     var  accessToken= json.data.access_token;
+        //     AsyncStorage.setItem('accessToken',accessToken).then(
+        //         ()=>{   //成功的操作
+        //
+        //             this.refs.toast.show(accessToken, DURATION.LENGTH_LONG);
+        //             this.props.navigator.push({
+        //                 component: Main,    // 要跳转的版块
+        //                 passProps: {
+        //                     name: '智通三千'
+        //                 },
+        //                 type: 'Normal'
+        //             })
+        //         },
+        //     );
+        //
+        // }).catch((error) => {
+        //     console.error(error);
+        // });
+        this.props.navigator.push({
+                        component: Main,    // 要跳转的版块
+                        passProps: {
+                            name: '智通三千'
+                        },
+                        type: 'Normal'
+                    });
     }
 
     //改变手机号触发
