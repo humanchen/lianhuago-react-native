@@ -35,11 +35,12 @@ export default class Register extends Component {
 
             <View style={styles.container}>
                 <TopNavigator
-                    title='注册'
-                    leftItemTitle='返回'
-                    leftTextColor='blue'
+                    title='登录'
+                    rightItemTitle='注册'
+                    rightTextColor='red'
                     leftItemFunc={this._leftItemAction.bind(this)}
                     rightItemFunc={this._rightItemAction.bind(this)}/>
+
                 <View style={styles.top}>
                     <View style={styles.inputContainer}>
                         <View style={styles.inputBox}>
