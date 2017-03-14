@@ -8,12 +8,15 @@ import {
 import TabNavigator from 'react-native-tab-navigator'
 import FirstPage from '../FirstPage/FirstPage'
 import TopNavigator from '../Common/TopNavigator'
+import My from '../My/My'
+import Car from '../Car/Car'
 export default class Main extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             selectedTab: '首页',
+            mainTitle:'金沙洲店',
         };
     }
 
@@ -21,7 +24,7 @@ export default class Main extends Component {
         return (
             <View style={styles.container}>
                 <TopNavigator
-                    title='登录'
+                    title={this.state.selectedTab}
                     rightItemTitle='注册'
                     rightTextColor='red'
                     />
@@ -49,7 +52,8 @@ export default class Main extends Component {
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
                         onPress={() => this.setState({ selectedTab: '购物车' })}>
-                        <FirstPage/>
+                        <Car/>
+
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === '我的'}
@@ -57,7 +61,7 @@ export default class Main extends Component {
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
                         onPress={() => this.setState({ selectedTab: '我的' })}>
-                        <FirstPage/>
+                        <My/>
                     </TabNavigator.Item>
 
                 </TabNavigator>
