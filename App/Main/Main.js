@@ -21,6 +21,14 @@ export default class Main extends Component {
             selectedTab: '首页',
             mainTitle:'金沙洲店',
             dataList:null,
+            item1normal:'0',
+            item1select:'0',
+            item2normal:'0',
+            item2select:'0',
+            item3normal:'0',
+            item3select:'0',
+            item4normal:'0',
+            item4select:'0',
         };
     }
 
@@ -47,10 +55,21 @@ export default class Main extends Component {
           let item=datalist[0];
 
 
-          this.setState({dataList:datalist});
+          this.setState({dataList:datalist,
+            item1normal:datalist[0].normal_icon,
+            item1select:datalist[0].select_icon,
+            item2normal:datalist[1].normal_icon,
+            item2select:datalist[1].select_icon,
+            item3normal:datalist[2].normal_icon,
+            item3select:datalist[2].select_icon,
+            item4normal:datalist[3].normal_icon,
+            item4select:datalist[3].select_icon,
+          });
           this.refs.toast.show(this.state.dataList[0].select_icon, DURATION.LENGTH_LONG);
+          // this.refs.img1.setNativeProps({
+          //    source:require('../Image/star123.png')
+          // });
 
-          
       }).catch((error) => {
           console.error(error);
       });
@@ -67,11 +86,13 @@ export default class Main extends Component {
                     />
                 <TabNavigator>
                     <TabNavigator.Item
-                        ref='item1'
+
                         selected={this.state.selectedTab === '首页'}
                         title="首页"
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
+                        renderIcon={() => <Image  source={{url:this.state.item1normal}} style={styles.tabIcon}/>}
+              renderSelectedIcon={() => <Image  source={{url:this.state.item1select}} style={styles.tabIcon}/>}
                         onPress={() => this.setState({ selectedTab: '首页' })}>
                         <FirstPage/>
                     </TabNavigator.Item>
@@ -81,7 +102,8 @@ export default class Main extends Component {
                         title="扫码购"
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
-
+                        renderIcon={() => <Image  source={{url:this.state.item2normal}} style={styles.tabIcon}/>}
+                        renderSelectedIcon={() => <Image  source={{url:this.state.item2select}} style={styles.tabIcon}/>}
 
                         onPress={() => this.setState({ selectedTab: '扫码购' })}>
                         <FirstPage/>
@@ -91,7 +113,8 @@ export default class Main extends Component {
                         title="购物车"
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
-
+                        renderIcon={() => <Image  source={{url:this.state.item3normal}} style={styles.tabIcon}/>}
+                        renderSelectedIcon={() => <Image  source={{url:this.state.item3select}} style={styles.tabIcon}/>}
 
                         onPress={() => this.setState({ selectedTab: '购物车' })}>
                         <Car/>
@@ -103,7 +126,8 @@ export default class Main extends Component {
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
 
-
+                        renderIcon={() => <Image  source={{url:this.state.item4normal}} style={styles.tabIcon}/>}
+                        renderSelectedIcon={() => <Image  source={{url:this.state.item4select}} style={styles.tabIcon}/>}
                         onPress={() => this.setState({ selectedTab: '我的' })}>
                         <My/>
                     </TabNavigator.Item>
@@ -127,12 +151,12 @@ const styles = StyleSheet.create({
         fontSize: 13
     },
     selectedTabText: {
-        color: "blue",
+        color: "red",
         fontSize: 13
     },
     tabIcon: {
-       width: 30,
-       height: 30,
+       width: 25,
+       height: 25,
        resizeMode: 'stretch',
       //  marginTop: 12.5
    }
