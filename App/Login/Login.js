@@ -25,8 +25,13 @@ var REQUEST_URL = 'https://raw.githubusercontent.com/facebook/react-native/maste
 var phone='';
 var password='';
 export default class Login extends Component {
-    componentWillMount() {
-
+    componentDidMount() {
+      // this.refs.tex1.setNativeProps({
+      //   // style:{
+      //   // color:'blue',
+      //   // fontSize:30
+      // }
+      // });
     }
 
     constructor(props) {
@@ -194,7 +199,7 @@ export default class Login extends Component {
                         <View style={styles.smallline}>
 
                         </View>
-                        <Text style={{color:'gray',fontSize:15,textAlign:'center'}}>
+                        <Text style={{color:'gray',fontSize:15,textAlign:'center'}} ref='tex1'>
                             第三方快捷登录方式
                         </Text>
                         <View style={styles.smallline}>
