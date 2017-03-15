@@ -12,17 +12,33 @@ import {
 export default class NormalCell extends Component {
 
   static defaultProps = {
-    name: ''
+    name: '',
+    smallname:'',
   }
+
+  _showSmall(){
+    if(this.props.smallname!='')
+    return(
+        <Text style={styles.textM} >{this.props.smallname}</Text>
+    )
+
+
+  }
+
   render() {
     return (
       <TouchableOpacity onPress={()=>{alert('点击了')}}>
 
       <View style={styles.container}>
         <View  style={{flexDirection:'row',alignItems: 'center',}}>
-            <Image style={styles.imageStyle}  source={require('../Image/star.png')}
+            <Image style={styles.imageStyle}  source={require('../Image/star123.png')}
           />
+             <View style={styles.view1}>
             <Text style={styles.textS}>{this.props.name}</Text>
+           {this._showSmall()}
+
+
+            </View>
         </View>
         <View style={{flexDirection:'row',alignItems: 'center',}} >
             <Image style={styles.imageStyle}  source={require('../Image/arrowright.png')}
@@ -49,10 +65,20 @@ const styles = StyleSheet.create({
      padding:10,
   },
   textS:{
-    fontSize:12
+    fontSize:14,
+    // marginLeft:10,
+  },
+  textM:{
+    fontSize:12,
+    color:'gray',
+    paddingTop:3,
   },
   imageStyle: {
       width: 30,
       height: 30
   },
+  view1:{
+    marginLeft:10,
+    flexDirection:'column',
+  }
 });

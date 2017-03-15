@@ -27,17 +27,17 @@ export default class FirstPage extends Component {
     );
     else if(rowID==1){
       return(
-        <NormalCell name='扫一扫，快支付'/>
+        <NormalCell name='扫一扫，快支付' smallname='扫码自助购，免排队，快支付' />
       );
     }
     else if(rowID==2){
       return(
-        <NormalCell name='最新海报'/>
+        <NormalCell name='最新海报' />
       );
     }
     else if(rowID==3){
       return(
-        <NormalCell name='贴心配送'/>
+        <NormalCell name='贴心配送'smallname='整单满128元，专业的配送团队帮您的商品物流到家'/>
       );
     }
   }
