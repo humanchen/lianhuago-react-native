@@ -14,6 +14,7 @@ export default class NormalCell extends Component {
   static defaultProps = {
     name: '',
     smallname:'',
+    imgUrl:'',
   }
 
   _showSmall(){
@@ -31,7 +32,9 @@ export default class NormalCell extends Component {
 
       <View style={styles.container}>
         <View  style={{flexDirection:'row',alignItems: 'center',}}>
-            <Image style={styles.imageStyle}  source={require('../Image/star123.png')}
+            <Image style={styles.imageStyle} source={{
+                url: this.props.imgUrl
+            }}
           />
              <View style={styles.view1}>
             <Text style={styles.textS}>{this.props.name}</Text>
