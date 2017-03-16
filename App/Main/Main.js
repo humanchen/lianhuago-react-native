@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet,
     ScrollView,
-    Image,
+    Image
 } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator'
 import FirstPage from '../FirstPage/FirstPage'

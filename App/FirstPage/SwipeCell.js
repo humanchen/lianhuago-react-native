@@ -14,7 +14,7 @@ export default class SwipeCell extends Component {
             img1: '',
             img2: '',
             img3: '',
-            imag4: ''
+            img4: '',
         };
     }
 

@@ -1,0 +1,14 @@
+{
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "installedESLint": true,
+    "plugins": [
+        "react"
+    ],
+    "env": {
+        "jquery": true
+    },
+    "rules": {
+
+    }
+
+}
