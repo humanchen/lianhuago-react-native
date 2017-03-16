@@ -81,8 +81,8 @@ export default class Main extends Component {
             <View style={styles.container}>
                 <TopNavigator
                     title={this.state.selectedTab}
-                    rightItemTitle='注册'
-                    rightTextColor='red'
+                    // rightItemTitle='注册'
+                    // rightTextColor='red'
                     />
                 <TabNavigator>
                     <TabNavigator.Item
@@ -147,12 +147,12 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
     },
     tabText: {
-        color: "#000000",
-        fontSize: 13
+        color: "gray",
+        fontSize: 11
     },
     selectedTabText: {
         color: "red",
-        fontSize: 13
+        fontSize: 11
     },
     tabIcon: {
        width: 25,

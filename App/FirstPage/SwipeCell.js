@@ -14,7 +14,7 @@ export default class SwipeCell extends Component {
             img1: '',
             img2: '',
             img3: '',
-            img4: '',
+            img4: ''
         };
     }
 
@@ -53,7 +53,11 @@ export default class SwipeCell extends Component {
 
     render() {
         return (
-            <Swiper style={styles.wrapper} height={180} loop={true} autoplay={true} activeDot={< View style = {{backgroundColor: 'white', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}/>}>
+            <Swiper style={styles.wrapper} height={180} loop={true} autoplay={true}
+              paginationStyle={{
+                bottom: 10
+              }}
+              activeDot={< View style = {{backgroundColor: 'white', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}/>}>
                 <View style={styles.slide1}>
 
                     <Image source={{
