@@ -55,7 +55,7 @@ export default class SwipeCell extends Component {
         return (
             <Swiper style={styles.wrapper} height={180} loop={true} autoplay={true}
               paginationStyle={{
-                bottom: 10
+                bottom: 5
               }}
               activeDot={< View style = {{backgroundColor: 'white', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}/>}>
                 <View style={styles.slide1}>
