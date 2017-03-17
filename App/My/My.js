@@ -29,7 +29,7 @@ export default class My extends Component {
                 1: [
                     'a', 'b'
                 ],
-                2: [['分享给好友',require('../Image/mine_share_friend.png')], ['用户反馈',require('../Image/mine_userback.png')], ['我的优惠券',''], ['关于我们',''], ['设置','']]
+                2: [['分享给好友',require('../Image/mine_share_friend.png')], ['用户反馈',require('../Image/mine_userback.png')], ['我的优惠券',require('../Image/mine_coupon.png')], ['关于我们',require('../Image/mine_aboutus.png')], ['设置',require('../Image/minesetting.png')]]
             }), // cloneWithRows 放置数组
             // loaded: false,
         };
