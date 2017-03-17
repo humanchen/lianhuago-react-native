@@ -40,7 +40,12 @@ export default class SwipeCell extends Component {
             let data1 = json.data;
             // alert(data1)
 
-            this.setState({img1: data1.focus_list[0].image_url, img2: data1.focus_list[1].image_url, img3: data1.focus_list[2].image_url, img4: data1.focus_list[3].image_url});
+            this.setState({
+                img1: data1.focus_list[0].image_url,
+                img2: data1.focus_list[1].image_url,
+                img3: data1.focus_list[2].image_url,
+                img4: data1.focus_list[3].image_url
+            });
             // this.refs.toast.show(this.state.dataList[0].select_icon, DURATION.LENGTH_LONG);
             // this.refs.img1.setNativeProps({
             //    source:require('../Image/star123.png')
@@ -54,10 +59,10 @@ export default class SwipeCell extends Component {
     render() {
         return (
             <Swiper style={styles.wrapper} height={180} loop={true} autoplay={true}
-              paginationStyle={{
+                    paginationStyle={{
                 bottom: 5
               }}
-              activeDot={< View style = {{backgroundColor: 'white', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}/>}>
+                    activeDot={< View style = {{backgroundColor: 'white', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}/>}>
                 <View style={styles.slide1}>
 
                     <Image source={{
@@ -89,9 +94,12 @@ export default class SwipeCell extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+
     },
-    wrapper: {},
+    wrapper: {
+
+    },
     slide1: {
         flex: 1,
         justifyContent: 'center',
