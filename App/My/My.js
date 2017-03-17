@@ -29,7 +29,7 @@ export default class My extends Component {
                 1: [
                     'a', 'b'
                 ],
-                2: ['分享给好友', '用户反馈', '我的优惠券', '关于我们', '设置']
+                2: [['分享给好友',require('../Image/mine_share_friend.png')], ['用户反馈',require('../Image/mine_userback.png')], ['我的优惠券',''], ['关于我们',''], ['设置','']]
             }), // cloneWithRows 放置数组
             // loaded: false,
         };
@@ -64,8 +64,9 @@ export default class My extends Component {
             return (
                 <TouchableOpacity activeOpacity={0.5} onPress={() => this.pushToDetail(rowData)}>
                     <View style={styles.cellView}>
-                        <View>
-                            <Text style={styles.textS}>{rowData}</Text>
+                        <View style={{flexDirection:'row',alignItems: 'center',}}>
+                          <Image style={styles.imageStyle} source={rowData[1]}/>
+                            <Text style={styles.textS}>{rowData[0]}</Text>
                         </View>
                         <View style={{
                             flexDirection: 'row',
@@ -110,10 +111,11 @@ const styles = StyleSheet.create({
         height: 30,
         borderBottomWidth: 1,
         borderBottomColor: '#e8e8e8',
-        padding: 10
+        padding: 8
     },
     textS: {
-        fontSize: 12
+        fontSize: 12,
+        marginLeft:8,
     },
     imageStyle: {
         width: 15,

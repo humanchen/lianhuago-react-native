@@ -15,7 +15,8 @@ export default class Order1Cell extends Component {
       <TouchableOpacity onPress={()=>{alert('点击了')}}>
 
       <View style={styles.container}>
-        <View>
+        <View style={{flexDirection:'row',alignItems: 'center',}}>
+            <Image style={styles.imageStyle} source={require('../Image/mine_myorder.png')}/>
             <Text style={styles.textS}>我的订单</Text>
         </View>
         <View style={{flexDirection:'row',alignItems: 'center',}} >
@@ -38,12 +39,13 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
      backgroundColor:'white',
      height:30,
-     borderBottomWidth:0.5,
+     borderBottomWidth:1,
      borderBottomColor:'#e8e8e8',
-     padding:10,
+     padding:8,
   },
   textS:{
-    fontSize:12
+    fontSize:12,
+    marginLeft:8,
   },
   imageStyle: {
       width: 15,
