@@ -117,7 +117,7 @@ export default class Main extends Component {
                         renderSelectedIcon={() => <Image  source={{url:this.state.item3select}} style={styles.tabIcon}/>}
 
                         onPress={() => this.setState({ selectedTab: '购物车' })}>
-                        <Car/>
+                        <Car navigator={this.props.navigator}/>
 
                     </TabNavigator.Item>
                     <TabNavigator.Item
@@ -129,7 +129,7 @@ export default class Main extends Component {
                         renderIcon={() => <Image  source={{url:this.state.item4normal}} style={styles.tabIcon}/>}
                         renderSelectedIcon={() => <Image  source={{url:this.state.item4select}} style={styles.tabIcon}/>}
                         onPress={() => this.setState({ selectedTab: '我的' })}>
-                        <My/>
+                        <My navigator={this.props.navigator}/>
                     </TabNavigator.Item>
 
                 </TabNavigator>

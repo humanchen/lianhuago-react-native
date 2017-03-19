@@ -11,6 +11,8 @@ import NameCell from './NameCell'
 import MemberCardCell from './MemberCardCell'
 import Order1Cell from './Order1Cell'
 import Order2Cell from './Order2Cell'
+import AboutUs from './About/AboutUs'
+
 const DI = require('Dimensions');
 const WINDOW = DI.get('window');
 
@@ -35,6 +37,20 @@ export default class My extends Component {
         };
 
     }
+
+    pushToDetail(rowID){
+         if(rowID==3){
+             // alert('关于');
+             this.props.navigator.push({
+                 component: AboutUs,    // 要跳转的版块
+                 passProps: {
+                     name: '智通三千'
+                 },
+                 type: 'Normal'
+             })
+         }
+    }
+
 
     // 返回具体的cell
     _renderRow(rowData, sectionID, rowID) {
@@ -62,7 +78,7 @@ export default class My extends Component {
             );
         } else {
             return (
-                <TouchableOpacity activeOpacity={0.5} onPress={() => this.pushToDetail(rowData)}>
+                <TouchableOpacity activeOpacity={0.5} onPress={() => this.pushToDetail(rowID)}>
                     <View style={styles.cellView}>
                         <View style={{flexDirection:'row',alignItems: 'center',}}>
                           <Image style={styles.imageStyle} source={rowData[1]}/>

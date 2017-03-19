@@ -36,7 +36,7 @@ export default class Login extends Component {
 
     constructor(props) {
         super(props);
-        console.log('Login props : ', this.props);
+       // alert('Login props : ', this.props);
 
         //初始状态
         this.state = {
@@ -124,7 +124,8 @@ export default class Login extends Component {
         this.props.navigator.push({
                         component: Main,    // 要跳转的版块
                         passProps: {
-                            name: '智通三千'
+                            name: '智通三千',
+                            navigator :  this.props.navigator ,
                         },
                         type: 'Normal'
                     });
