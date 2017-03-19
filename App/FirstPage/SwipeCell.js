@@ -64,25 +64,25 @@ export default class SwipeCell extends Component {
                 <View style={styles.slide1}>
 
                     <Image source={{
-                        url: this.state.img1
+                        uri: this.state.img1
                     }} style={styles.tabIcon}/>
                 </View>
                 <View style={styles.slide2}>
 
                     <Image source={{
-                        url: this.state.img2
+                        uri: this.state.img2
                     }} style={styles.tabIcon}/>
                 </View>
                 <View style={styles.slide3}>
 
                     <Image source={{
-                        url: this.state.img3
+                        uri: this.state.img3
                     }} style={styles.tabIcon}/>
                 </View>
                 <View style={styles.slide3}>
 
                     <Image source={{
-                        url: this.state.img4
+                        uri: this.state.img4
                     }} style={styles.tabIcon}/>
                 </View>
             </Swiper>
