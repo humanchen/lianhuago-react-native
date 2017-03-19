@@ -244,6 +244,8 @@ export  default class TopNavigator extends Component {
         // 左图片
         nav_leftImage: {
             margin:10,
+            width:25,
+            height:25,
             resizeMode:'contain',
         },
 
@@ -267,6 +269,8 @@ export  default class TopNavigator extends Component {
         nav_rightImage:{
             margin:10,
             resizeMode:'contain',
+            width:25,
+            height:25,
             //backgroundColor:'#f00',
         },
         //resizeMode:'contain',
