@@ -25,9 +25,7 @@ export default class SwipeCell extends Component {
         formData.append("outlet_no", "096");
         fetch('https://lotusgo.cplotus-gz.com/api-1.8/home/advertise', {
             method: 'POST',
-            headers: {
-                "Content-Type": "application/json;charset=UTF-8"
-            },
+
             body: formData
         }).then((response) => {
             if (response.ok) {

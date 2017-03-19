@@ -12,6 +12,8 @@ import TopNavigator from '../Common/TopNavigator'
 import My from '../My/My'
 import Car from '../Car/Car'
 import Toast, {DURATION} from 'react-native-easy-toast'
+
+
 var datalist;
 export default class Main extends Component {
     constructor(props) {
@@ -39,7 +41,7 @@ export default class Main extends Component {
       formData.append("outlet_no","096");
       fetch('https://lotusgo.cplotus-gz.com/api-1.8/app/style' , {
           method: 'POST',
-          headers: { "Content-Type": "application/json;charset=UTF-8"},
+
           body: formData
       }).then((response) => {
           if (response.ok) {
