@@ -11,10 +11,10 @@ export default class SwipeCell extends Component {
         super(props);
 
         this.state = {
-            img1: '',
-            img2: '',
-            img3: '',
-            img4: ''
+            img1: '0',
+            img2: '0',
+            img3: '0',
+            img4: '0'
         };
     }
 

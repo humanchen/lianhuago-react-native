@@ -33,7 +33,7 @@ export default class NormalCell extends Component {
       <View style={styles.container}>
         <View  style={{flexDirection:'row',alignItems: 'center',}}>
             <Image style={styles.imageStyle} source={{
-                url: this.props.imgUrl
+                uri: this.props.imgUrl
             }}
           />
              <View style={styles.view1}>

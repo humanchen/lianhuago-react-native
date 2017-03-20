@@ -19,9 +19,9 @@ export default class FirstPage extends Component {
 
         this.state = {
             dataSource: ds.cloneWithRows(['a', 'b', 'c', 'd']),
-            icon1: '',
-            icon2: '',
-            icon3: '',
+            icon1: '0',
+            icon2: '0',
+            icon3: '0',
         };
     }
 

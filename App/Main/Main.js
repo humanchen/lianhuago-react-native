@@ -93,7 +93,7 @@ export default class Main extends Component {
                         title="首页"
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
-                        renderIcon={() => <Image  source={{url:this.state.item1normal}} style={styles.tabIcon}/>}
+                        renderIcon={() => <Image  source={{uri:this.state.item1normal}} style={styles.tabIcon}/>}
               renderSelectedIcon={() => <Image  source={{url:this.state.item1select}} style={styles.tabIcon}/>}
                         onPress={() => this.setState({ selectedTab: '首页' })}>
                         <FirstPage/>
