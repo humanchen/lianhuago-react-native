@@ -63,7 +63,13 @@ export default class AboutUs extends Component {
 
                 <View style={styles.forthCell}>
 
-                    <Text style={{marginLeft:10,color:'black',fontSize:13}}>    卜蜂莲花是泰国知名跨国集团--正大集团下属的零售企业。莲花GO是卜蜂莲花超市一款自助购物软件。可实现自助扫描商品、快捷手机支付、自助打印小票、轻松完成提货的购物过程。免排队、快支付，莲花GO给您更便利的生活体验！</Text>
+                    <View style={styles.smallView}>
+                        <Image style={styles.bigImageStyle} source={require('../../Image/icon_about_us.png')}
+                        />
+                        <View >
+                            
+                        </View>
+                    </View>
 
 
 
@@ -150,12 +156,22 @@ const styles = StyleSheet.create({
         // flexDirection: 'row',
         // alignItems: 'center',
     },
+    smallView:{
+      flexDirection:'row',
+        alignItems:'center',
+    },
 
     imageStyle: {
         width: 50,
         height: 50,
         margin: 5,
     },
+    bigImageStyle: {
+        width: 60,
+        height: 60,
+        // margin: 5,
+    },
+
     maintext: {
         fontWeight: 'bold',
         fontSize: 14,
