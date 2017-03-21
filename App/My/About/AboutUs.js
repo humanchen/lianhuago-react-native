@@ -16,7 +16,7 @@ export default class AboutUs extends Component {
         super(props);
         // 初始状态
         this.state = {
-            dataSource: ds.cloneWithRows(['0', '1', '2','3']),
+            dataSource: ds.cloneWithRows(['0', '1', '2', '3']),
 
         };
     }
@@ -48,12 +48,12 @@ export default class AboutUs extends Component {
 
                 </View>
             )
-        else if(rowID == 2)
+        else if (rowID == 2)
             return (
                 <View style={styles.thirdCell}>
 
-                    <Text style={{marginLeft:10,color:'black',fontSize:13}}>    卜蜂莲花是泰国知名跨国集团--正大集团下属的零售企业。莲花GO是卜蜂莲花超市一款自助购物软件。可实现自助扫描商品、快捷手机支付、自助打印小票、轻松完成提货的购物过程。免排队、快支付，莲花GO给您更便利的生活体验！</Text>
-
+                    <Text style={{marginLeft:10,color:'black',fontSize:13}}>
+                        卜蜂莲花是泰国知名跨国集团--正大集团下属的零售企业。莲花GO是卜蜂莲花超市一款自助购物软件。可实现自助扫描商品、快捷手机支付、自助打印小票、轻松完成提货的购物过程。免排队、快支付，莲花GO给您更便利的生活体验！</Text>
 
 
                 </View>
@@ -64,13 +64,38 @@ export default class AboutUs extends Component {
                 <View style={styles.forthCell}>
 
                     <View style={styles.smallView}>
-                        <Image style={styles.bigImageStyle} source={require('../../Image/icon_about_us.png')}
+                        <Image style={styles.bigImageStyle} source={require('../../Image/outlet_shopping.png')}
                         />
-                        <View >
-                            
+                        <View style={{marginLeft:15}}>
+                            <Text style={[styles.maintext,{fontSize:18},]}>自助购物</Text>
+                            <Text style={[styles.secondText,{marginTop:3}]}>扫描商品，轻松加入购物车</Text>
                         </View>
                     </View>
-
+                    <View style={{width:70,height: 50,justifyContent:'center',alignItems:'center'}}>
+                        <Image style={{width:30,height: 17}} source={require('../../Image/arrows_down.png')}
+                        />
+                    </View>
+                    <View style={styles.smallView}>
+                        <Image style={styles.bigImageStyle} source={require('../../Image/online_pay.png')}
+                        />
+                        <View style={{marginLeft:15}}>
+                            <Text style={[styles.maintext,{fontSize:18},]}>在线支付</Text>
+                            <Text style={[styles.secondText,{marginTop:3}]}>随心在线结账</Text>
+                            <Text style={[styles.secondText,{marginTop:3}]}>支持多种支付方式</Text>
+                        </View>
+                    </View>
+                    <View style={{width:70,height: 50,justifyContent:'center',alignItems:'center'}}>
+                        <Image style={{width:30,height: 17}} source={require('../../Image/arrows_down.png')}
+                        />
+                    </View>
+                    <View style={styles.smallView}>
+                        <Image style={styles.bigImageStyle} source={require('../../Image/buffet_voucher.png')}
+                        />
+                        <View style={{marginLeft:15}}>
+                            <Text style={[styles.maintext,{fontSize:18},]}>自助凭证</Text>
+                            <Text style={[styles.secondText,{marginTop:3}]}>扫一扫即可获取购物小票</Text>
+                        </View>
+                    </View>
 
 
                 </View>
@@ -137,28 +162,28 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
-    thirdCell:{
+    thirdCell: {
         height: 120,
         backgroundColor: 'white',
         borderBottomWidth: 1,
         borderBottomColor: '#e8e8e8',
-        padding:10,
+        padding: 10,
         // flexDirection: 'row',
         // alignItems: 'center',
     },
-    forthCell:{
-        height: ScreenHeight-64-10-60-50-120,
+    forthCell: {
+        height: ScreenHeight - 64 - 10 - 60 - 50 - 120,
         backgroundColor: 'white',
         // borderBottomWidth: 1,
         // borderBottomColor: '#e8e8e8',
-        paddingTop:20,
-        paddingLeft:50,
+        paddingTop: 20,
+        paddingLeft: 50,
         // flexDirection: 'row',
         // alignItems: 'center',
     },
-    smallView:{
-      flexDirection:'row',
-        alignItems:'center',
+    smallView: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
 
     imageStyle: {
@@ -167,8 +192,8 @@ const styles = StyleSheet.create({
         margin: 5,
     },
     bigImageStyle: {
-        width: 60,
-        height: 60,
+        width: 70,
+        height: 70,
         // margin: 5,
     },
 
