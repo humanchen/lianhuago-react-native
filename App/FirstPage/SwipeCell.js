@@ -41,8 +41,8 @@ export default class SwipeCell extends Component {
             this.setState({
                 img1: data1.focus_list[0].image_url,
                 img2: data1.focus_list[1].image_url,
-                img3: data1.focus_list[2].image_url,
-                img4: data1.focus_list[3].image_url
+                img3: data1.focus_list[1].image_url,
+                img4: data1.focus_list[1].image_url
             });
             // this.refs.toast.show(this.state.dataList[0].select_icon, DURATION.LENGTH_LONG);
             // this.refs.img1.setNativeProps({

@@ -94,7 +94,7 @@ export default class Main extends Component {
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
                         renderIcon={() => <Image  source={{uri:this.state.item1normal}} style={styles.tabIcon}/>}
-              renderSelectedIcon={() => <Image  source={{url:this.state.item1select}} style={styles.tabIcon}/>}
+              renderSelectedIcon={() => <Image  source={{uri:this.state.item1select}} style={styles.tabIcon}/>}
                         onPress={() => this.setState({ selectedTab: '首页' })}>
                         <FirstPage/>
                     </TabNavigator.Item>
@@ -104,8 +104,8 @@ export default class Main extends Component {
                         title="扫码购"
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
-                        renderIcon={() => <Image  source={{url:this.state.item2normal}} style={styles.tabIcon}/>}
-                        renderSelectedIcon={() => <Image  source={{url:this.state.item2select}} style={styles.tabIcon}/>}
+                        renderIcon={() => <Image  source={{uri:this.state.item2normal}} style={styles.tabIcon}/>}
+                        renderSelectedIcon={() => <Image  source={{uri:this.state.item2select}} style={styles.tabIcon}/>}
 
                         onPress={() => this.setState({ selectedTab: '扫码购' })}>
                         <FirstPage/>
@@ -115,8 +115,8 @@ export default class Main extends Component {
                         title="购物车"
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
-                        renderIcon={() => <Image  source={{url:this.state.item3normal}} style={styles.tabIcon}/>}
-                        renderSelectedIcon={() => <Image  source={{url:this.state.item3select}} style={styles.tabIcon}/>}
+                        renderIcon={() => <Image  source={{uri:this.state.item3normal}} style={styles.tabIcon}/>}
+                        renderSelectedIcon={() => <Image  source={{uri:this.state.item3select}} style={styles.tabIcon}/>}
 
                         onPress={() => this.setState({ selectedTab: '购物车' })}>
                         <Car navigator={this.props.navigator}/>
@@ -128,8 +128,8 @@ export default class Main extends Component {
                         titleStyle={styles.tabText}
                         selectedTitleStyle={styles.selectedTabText}
 
-                        renderIcon={() => <Image  source={{url:this.state.item4normal}} style={styles.tabIcon}/>}
-                        renderSelectedIcon={() => <Image  source={{url:this.state.item4select}} style={styles.tabIcon}/>}
+                        renderIcon={() => <Image  source={{uri:this.state.item4normal}} style={styles.tabIcon}/>}
+                        renderSelectedIcon={() => <Image  source={{uri:this.state.item4select}} style={styles.tabIcon}/>}
                         onPress={() => this.setState({ selectedTab: '我的' })}>
                         <My navigator={this.props.navigator}/>
                     </TabNavigator.Item>
