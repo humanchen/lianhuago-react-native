@@ -1,7 +1,20 @@
-import React from 'react-native';
-import styles from 'styles';
+import React, {Component} from 'react';
+// import styles from 'styles';
 
-const {Component, View, Text} = React;
+import {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    TextInput,
+    Button,
+    TouchableOpacity,
+    Alert,
+    Image,
+    AsyncStorage
+} from 'react-native';
+
+
 
 class Poster extends Component {
     // 默认属性
@@ -26,9 +39,9 @@ class Poster extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.textDefault}>
-                    Poster
-                </Text>
+                {/*<Text style={styles.textDefault}>*/}
+                    {/*Poster*/}
+                {/*</Text>*/}
             </View>
         );
     }

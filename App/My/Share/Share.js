@@ -1,7 +1,25 @@
-import React from 'react-native';
-// import styles from 'styles';
+import React, {Component} from 'react';
+
+
+import {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    TextInput,
+    Button,
+    TouchableOpacity,
+    Alert,
+    Image,
+    AsyncStorage
+} from 'react-native';
+
+var Dimensions = require('Dimensions');
+var ScreenWidth = Dimensions.get('window').width;
+var ScreenHeight = Dimensions.get('window').height;
+
 import TopNavigator from  '../../Common/TopNavigator'
-const {Component, View, Text} = React;
+
 
 class Share extends Component {
     // 默认属性
@@ -29,15 +47,25 @@ class Share extends Component {
     // 渲染
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <TopNavigator
                     title='分享给好友'
                     leftItemFunc={this._leftItemAction.bind(this)}
                     leftImageSource={ require('../../Image/arrowto_left.png')}
                 />
-                <Text style={styles.textDefault}>
-                    Share
+                <Image style={styles.imageStyle}
+                       source={require('../../Image/mine_qrcode.png')}/>
+                <Text style={styles.maintext}>
+                    邀请好友扫一扫二维码，下载莲花GO
                 </Text>
+                {/*<View style={styles.imageStyle}>*/}
+
+                {/*</View>*/}
+
+
+                {/*<Text style={styles.textDefault}>*/}
+                    {/*Share*/}
+                {/*</Text>*/}
             </View>
         );
     }
@@ -49,7 +77,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // justifyContent: 'center',
-        // alignItems: 'center'
+        //  alignItems: 'center',
         backgroundColor: '#e6e6e6',
         flexDirection: 'column',
 
@@ -97,9 +125,13 @@ const styles = StyleSheet.create({
     },
 
     imageStyle: {
-        width: 50,
-        height: 50,
-        margin: 5,
+
+        width: 150,
+        height: 150,
+         marginTop: 50,
+
+        alignSelf:'center',
+        // backgroundColor:'white',
     },
     bigImageStyle: {
         width: 70,
@@ -108,10 +140,11 @@ const styles = StyleSheet.create({
     },
 
     maintext: {
-        fontWeight: 'bold',
-        fontSize: 14,
+        // fontWeight: 'bold',
+        fontSize: 13,
         color: 'black',
-        // textAlign: 'center',
+        marginTop: 20,
+         textAlign: 'center',
     },
     secondText: {
         fontSize: 13,
