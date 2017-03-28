@@ -51,7 +51,9 @@ class Share extends Component {
                 <TopNavigator
                     title='分享给好友'
                     leftItemFunc={this._leftItemAction.bind(this)}
-                    leftImageSource={ require('../../Image/arrowto_left.png')}
+                    leftImageSource=  {require('../../Image/arrowto_left.png')}
+                    rightImageSource= {require('../../Image/mine_share_to_frien.png')}
+                    rightItemFunc={this._leftItemAction.bind(this)}
                 />
                 <Image style={styles.imageStyle}
                        source={require('../../Image/mine_qrcode.png')}/>
