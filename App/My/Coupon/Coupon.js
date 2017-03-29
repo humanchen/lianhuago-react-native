@@ -21,6 +21,7 @@ var ScreenHeight = Dimensions.get('window').height;
 import TopNavigator from  '../../Common/TopNavigator'
 
 
+
 class Coupon extends Component {
     // 默认属性
     static defaultProps = {};
@@ -49,16 +50,15 @@ class Coupon extends Component {
         return (
             <View style={styles.container}>
                 <TopNavigator
-                    title='我的优惠券'
+                    title='优惠券'
                     leftItemFunc={this._leftItemAction.bind(this)}
                     leftImageSource=  {require('../../Image/arrowto_left.png')}
-                    rightImageSource= {require('../../Image/mine_share_to_frien.png')}
-                    rightItemFunc={this._leftItemAction.bind(this)}
+
                 />
                 <Image style={styles.imageStyle}
-                       source={require('../../Image/mine_qrcode.png')}/>
+                       source={require('../../Image/def_coupon.png')}/>
                 <Text style={styles.maintext}>
-                    邀请好友扫一扫二维码，下载莲花GO
+                    您还没有优惠券
                 </Text>
                 {/*<View style={styles.imageStyle}>*/}
 
@@ -128,9 +128,9 @@ const styles = StyleSheet.create({
 
     imageStyle: {
 
-        width: 150,
-        height: 150,
-        marginTop: 50,
+        width: 60,
+        height: 60,
+        marginTop: 40,
 
         alignSelf:'center',
         // backgroundColor:'white',
@@ -143,8 +143,8 @@ const styles = StyleSheet.create({
 
     maintext: {
         // fontWeight: 'bold',
-        fontSize: 13,
-        color: 'black',
+        fontSize: 12,
+        color: 'gray',
         marginTop: 20,
         textAlign: 'center',
     },
