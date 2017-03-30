@@ -14,6 +14,7 @@ import Order2Cell from './Order2Cell'
 import AboutUs from './About/AboutUs'
 import Share from  './Share/Share'
 import Coupon from './Coupon/Coupon'
+import Feedback from './Feedback/Feedback'
 
 const DI = require('Dimensions');
 const WINDOW = DI.get('window');
@@ -51,6 +52,18 @@ export default class My extends Component {
                 type: 'Normal'
             })
         }
+
+        if(rowID==1){
+            // alert('关于');
+            this.props.navigator.push({
+                component: Feedback,    // 要跳转的版块
+                passProps: {
+                    name: '智通三千'
+                },
+                type: 'Normal'
+            })
+        }
+
 
         if(rowID==2){
             // alert('关于');
