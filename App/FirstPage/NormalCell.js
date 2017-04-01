@@ -26,9 +26,13 @@ export default class NormalCell extends Component {
 
   }
 
+  clickFunc(){
+
+  }
+
   render() {
     return (
-      <TouchableOpacity onPress={()=>{alert('点击了')}}>
+      <TouchableOpacity onPress={this.props.clickFunc}>
 
       <View style={styles.container}>
         <View  style={{flexDirection:'row',alignItems: 'center',}}>

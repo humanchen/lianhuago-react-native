@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import SwipeCell from './SwipeCell'
 import NormalCell from './NormalCell'
+import Poster from  './Poster/Poster'
+
 var Dimensions = require('Dimensions');
 var ScreenWidth = Dimensions.get('window').width;
 var ScreenHeight = Dimensions.get('window').height;
@@ -62,6 +64,17 @@ export default class FirstPage extends Component {
         });
     }
 
+    gotoPoster(){
+        this.props.navigator.push({
+            component: Poster,    // 要跳转的版块
+            passProps: {
+                name: '智通三千'
+            },
+            type: 'Normal'
+        })
+    }
+
+
     renderRow(rowData, sectionID, rowID, highlightRow) {
         if (rowID == 0)
             return (
@@ -78,7 +91,7 @@ export default class FirstPage extends Component {
         }
         else if (rowID == 2) {
             return (
-                <NormalCell name='最新海报' imgUrl={this.state.icon2}/>
+                <NormalCell name='最新海报' imgUrl={this.state.icon2} clickFunc={this.gotoPoster.bind(this)} />
             );
         }
         else if (rowID == 3) {
