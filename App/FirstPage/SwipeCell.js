@@ -14,7 +14,8 @@ export default class SwipeCell extends Component {
             img1: '0',
             img2: '0',
             img3: '0',
-            img4: '0'
+            img4: '0',
+            items:[]
         };
     }
 
@@ -42,7 +43,8 @@ export default class SwipeCell extends Component {
                 img1: data1.focus_list[0].image_url,
                 img2: data1.focus_list[1].image_url,
                 img3: data1.focus_list[1].image_url,
-                img4: data1.focus_list[1].image_url
+                img4: data1.focus_list[1].image_url,
+                items:data1.focus_list
             });
             // this.refs.toast.show(this.state.dataList[0].select_icon, DURATION.LENGTH_LONG);
             // this.refs.img1.setNativeProps({
@@ -54,8 +56,6 @@ export default class SwipeCell extends Component {
         });
     }
 
-    
-
     render() {
         return (
             <Swiper style={styles.wrapper} height={180} loop={true} autoplay={true}
@@ -63,30 +63,41 @@ export default class SwipeCell extends Component {
                 bottom: 5
               }}
                     activeDot={< View style = {{backgroundColor: 'white', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}/>}>
-                <View style={styles.slide1}>
 
-                    <Image source={{
-                        uri: this.state.img1
+                {this.state.items.map((item, key) => {
+                    return (
+                        <View key={key} style={styles.slide1}>
+                            <Image source={{
+                        uri: item.image_url
                     }} style={styles.tabIcon}/>
-                </View>
-                <View style={styles.slide2}>
+                        </View>
+                    )
+                })}
 
-                    <Image source={{
-                        uri: this.state.img2
-                    }} style={styles.tabIcon}/>
-                </View>
-                <View style={styles.slide3}>
+                {/*<View style={styles.slide1}>*/}
 
-                    <Image source={{
-                        uri: this.state.img3
-                    }} style={styles.tabIcon}/>
-                </View>
-                <View style={styles.slide3}>
+                    {/*<Image source={{*/}
+                        {/*uri: this.state.img1*/}
+                    {/*}} style={styles.tabIcon}/>*/}
+                {/*</View>*/}
+                {/*<View style={styles.slide2}>*/}
 
-                    <Image source={{
-                        uri: this.state.img4
-                    }} style={styles.tabIcon}/>
-                </View>
+                    {/*<Image source={{*/}
+                        {/*uri: this.state.img2*/}
+                    {/*}} style={styles.tabIcon}/>*/}
+                {/*</View>*/}
+                {/*<View style={styles.slide3}>*/}
+
+                    {/*<Image source={{*/}
+                        {/*uri: this.state.img3*/}
+                    {/*}} style={styles.tabIcon}/>*/}
+                {/*</View>*/}
+                {/*<View style={styles.slide3}>*/}
+
+                    {/*<Image source={{*/}
+                        {/*uri: this.state.img4*/}
+                    {/*}} style={styles.tabIcon}/>*/}
+                {/*</View>*/}
             </Swiper>
         );
     }
