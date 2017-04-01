@@ -56,6 +56,18 @@ export default class SwipeCell extends Component {
         });
     }
 
+    c(){
+        for (var i = 0; i < this.state.items.length; i++) {
+            return (
+                <View  style={styles.slide1}>
+                    <Image source={{
+                        uri: this.state.items[i].image_url
+                    }} style={styles.tabIcon}/>
+                </View>
+            )
+        }
+
+    }
     render() {
         return (
             <Swiper style={styles.wrapper} height={180} loop={true} autoplay={true}
@@ -63,7 +75,7 @@ export default class SwipeCell extends Component {
                 bottom: 5
               }}
                     activeDot={< View style = {{backgroundColor: 'white', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}/>}>
-
+                {/*{this.c()}*/}
                 {this.state.items.map((item, key) => {
                     return (
                         <View key={key} style={styles.slide1}>
