@@ -10,6 +10,7 @@ import {
 import SwipeCell from './SwipeCell'
 import NormalCell from './NormalCell'
 import Poster from  './Poster/Poster'
+import Send from  './Send/Send'
 
 var Dimensions = require('Dimensions');
 var ScreenWidth = Dimensions.get('window').width;
@@ -74,6 +75,15 @@ export default class FirstPage extends Component {
         })
     }
 
+    gotoSend(){
+        this.props.navigator.push({
+            component: Send,    // 要跳转的版块
+            passProps: {
+                name: '智通三千'
+            },
+            type: 'Normal'
+        })
+    }
 
     renderRow(rowData, sectionID, rowID, highlightRow) {
         if (rowID == 0)
@@ -96,7 +106,7 @@ export default class FirstPage extends Component {
         }
         else if (rowID == 3) {
             return (
-                <NormalCell name='贴心配送' smallname='整单满128元，专业的配送团队帮您的商品物流到家' imgUrl={this.state.icon3}/>
+                <NormalCell name='贴心配送' smallname='整单满128元，专业的配送团队帮您的商品物流到家' imgUrl={this.state.icon3} clickFunc={this.gotoSend.bind(this)}/>
             );
         }
     }

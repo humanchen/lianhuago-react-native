@@ -54,6 +54,8 @@ export default class SwipeCell extends Component {
         });
     }
 
+    
+
     render() {
         return (
             <Swiper style={styles.wrapper} height={180} loop={true} autoplay={true}
