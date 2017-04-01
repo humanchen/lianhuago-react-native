@@ -4,7 +4,7 @@ import Swiper from 'react-native-swiper'
 var Dimensions = require('Dimensions');
 var ScreenWidth = Dimensions.get('window').width;
 var ScreenHeight = Dimensions.get('window').height;
-
+var itemss=[];
 export default class SwipeCell extends Component {
 
     constructor(props) {
@@ -46,6 +46,8 @@ export default class SwipeCell extends Component {
                 img4: data1.focus_list[1].image_url,
                 items:data1.focus_list
             });
+
+            this.c();
             // this.refs.toast.show(this.state.dataList[0].select_icon, DURATION.LENGTH_LONG);
             // this.refs.img1.setNativeProps({
             //    source:require('../Image/star123.png')
@@ -58,8 +60,8 @@ export default class SwipeCell extends Component {
 
     c(){
         for (var i = 0; i < this.state.items.length; i++) {
-            return (
-                <View  style={styles.slide1}>
+            itemss.push (
+                <View key={i} style={styles.slide1}>
                     <Image source={{
                         uri: this.state.items[i].image_url
                     }} style={styles.tabIcon}/>
@@ -75,16 +77,16 @@ export default class SwipeCell extends Component {
                 bottom: 5
               }}
                     activeDot={< View style = {{backgroundColor: 'white', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}}/>}>
-                {/*{this.c()}*/}
-                {this.state.items.map((item, key) => {
-                    return (
-                        <View key={key} style={styles.slide1}>
-                            <Image source={{
-                        uri: item.image_url
-                    }} style={styles.tabIcon}/>
-                        </View>
-                    )
-                })}
+                {itemss}
+                {/*{this.state.items.map((item, key) => {*/}
+                    {/*return (*/}
+                        {/*<View key={key} style={styles.slide1}>*/}
+                            {/*<Image source={{*/}
+                        {/*uri: item.image_url*/}
+                    {/*}} style={styles.tabIcon}/>*/}
+                        {/*</View>*/}
+                    {/*)*/}
+                {/*})}*/}
 
                 {/*<View style={styles.slide1}>*/}
 
