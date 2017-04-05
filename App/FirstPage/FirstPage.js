@@ -85,11 +85,22 @@ export default class FirstPage extends Component {
         })
     }
 
+    gotoWeb(url){
+        this.props.navigator.push({
+            component: Send,    // 要跳转的版块
+            passProps: {
+                name: '智通三千'
+            },
+            type: 'Normal'
+        })
+    }
+
+
     renderRow(rowData, sectionID, rowID, highlightRow) {
         if (rowID == 0)
             return (
 
-                <SwipeCell/>
+                <SwipeCell callBack={(url)=>{this.gotoWeb(url)}}/>
             );
         else if (rowID == 1) {
             return (

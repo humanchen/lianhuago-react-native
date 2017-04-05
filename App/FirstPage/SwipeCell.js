@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Swiper from 'react-native-swiper'
 var Dimensions = require('Dimensions');
 var ScreenWidth = Dimensions.get('window').width;
@@ -62,14 +62,23 @@ export default class SwipeCell extends Component {
         for (var i = 0; i < this.state.items.length; i++) {
             itemss.push (
                 <View key={i} style={styles.slide1}>
+                    <TouchableOpacity onPress={this.click.bind(this,i)} activeOpacity={1}>
                     <Image source={{
                         uri: this.state.items[i].image_url
                     }} style={styles.tabIcon}/>
+                </TouchableOpacity>
                 </View>
+
             )
         }
 
     }
+
+    click(i){
+        this.props.callBack(i);
+    }
+
+
     render() {
         return (
             <Swiper style={styles.wrapper} height={180} loop={true} autoplay={true}
