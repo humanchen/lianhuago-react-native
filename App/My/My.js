@@ -15,6 +15,7 @@ import AboutUs from './About/AboutUs'
 import Share from  './Share/Share'
 import Coupon from './Coupon/Coupon'
 import Feedback from './Feedback/Feedback'
+import Set from './Set/Set'
 
 const DI = require('Dimensions');
 const WINDOW = DI.get('window');
@@ -88,6 +89,16 @@ export default class My extends Component {
          }
 
 
+        if(rowID==4){
+            // alert('关于');
+            this.props.navigator.push({
+                component: Set,    // 要跳转的版块
+                passProps: {
+                    name: '智通三千'
+                },
+                type: 'Normal'
+            })
+        }
     }
 
 
