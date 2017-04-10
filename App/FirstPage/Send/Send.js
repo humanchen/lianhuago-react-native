@@ -34,7 +34,9 @@ class Send extends Component {
     constructor(props) {
         super(props);
         // 初始状态
-        this.state = {};
+        this.state = {
+            url : "http://res.cplotus-gz.com/static//delivery.html"
+        };
     }
 
     // 自定义方法
@@ -46,7 +48,14 @@ class Send extends Component {
         this.props.navigator.pop();
     }
 
-
+    componentDidMount() {
+          if(this.props.url!=null){
+        // alert(this.props.name)
+              this.setState({
+                url : this.props.url,
+              });
+         }
+    }
     // 渲染
     render() {
         return (
@@ -59,7 +68,7 @@ class Send extends Component {
                 />
                 <WebView
                     style={{flex: 1,backgroundColor:'gray'}}
-                    source={{uri:url,method: 'GET'}}
+                    source={{uri:this.state.url,method: 'GET'}}
                     javaScriptEnabled={true}
                     domStorageEnabled={true}
                     scalesPageToFit={false}

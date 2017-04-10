@@ -86,10 +86,12 @@ export default class FirstPage extends Component {
     }
 
     gotoWeb(url){
+        // alert(url);
         this.props.navigator.push({
             component: Send,    // 要跳转的版块
-            passProps: {
-                name: '智通三千'
+            params: {
+                name: '智通三千',
+                url: url,
             },
             type: 'Normal'
         })

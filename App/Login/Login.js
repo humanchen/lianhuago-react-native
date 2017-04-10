@@ -123,8 +123,8 @@ export default class Login extends Component {
         // });
         this.props.navigator.push({
                         component: Main,    // 要跳转的版块
-                        passProps: {
-                            name: '智通三千',
+                        params: {
+                            name: 'abc',
                             navigator :  this.props.navigator ,
                         },
                         type: 'Normal'

@@ -75,7 +75,14 @@ export default class SwipeCell extends Component {
     }
 
     click(i){
-        this.props.callBack(i);
+        let data=this.state.items[i];
+        let url=data.link_url;
+        if(url!=null){
+            // alert(url);
+            this.props.callBack(url);
+        }
+
+
     }
 
 

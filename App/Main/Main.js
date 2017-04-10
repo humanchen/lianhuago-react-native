@@ -35,6 +35,8 @@ export default class Main extends Component {
     }
 
     componentDidMount(){
+        this.refs.toast.show(this.props.name, DURATION.LENGTH_LONG);
+
       let formData = new FormData();
       formData.append("device_id","C4BBE917-20FF-44E6-844A-0628EC6C096B");
       formData.append("access_token","a99d5c1c-c893-49e8-bb8b-de2dd4016466");
@@ -67,7 +69,7 @@ export default class Main extends Component {
             item4normal:datalist[3].normal_icon,
             item4select:datalist[3].select_icon,
           });
-          this.refs.toast.show(this.state.dataList[0].select_icon, DURATION.LENGTH_LONG);
+          // this.refs.toast.show(this.state.dataList[0].select_icon, DURATION.LENGTH_LONG);
           // this.refs.img1.setNativeProps({
           //    source:require('../Image/star123.png')
           // });
