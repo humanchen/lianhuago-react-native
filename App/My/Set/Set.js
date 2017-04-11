@@ -8,6 +8,7 @@ import {
     Image,
 } from 'react-native';
 import TopNavigator from  '../../Common/TopNavigator'
+import QA from './QA'
 
 export default class Set extends Component {
 
@@ -66,12 +67,28 @@ export default class Set extends Component {
             );
         }
     }
+
+    _pushToDetail(rowID,sectionID){
+        if(rowID==0&&sectionID==0){
+            this.props.navigator.push({
+                component: QA,    // 要跳转的版块
+                passProps: {
+                    name: '智通三千'
+                },
+                type: 'Normal'
+            })
+        }
+
+
+    }
+
+
 // 返回具体的cell
     _renderRow(rowData, sectionID, rowID) {
 
 
             return (
-                <TouchableOpacity activeOpacity={0.5} onPress={() => this.pushToDetail(rowID)}>
+                <TouchableOpacity activeOpacity={0.5} onPress={() => this._pushToDetail(rowID,sectionID)}>
                     <View style={styles.cellView}>
                         <View style={{flexDirection:'row',alignItems: 'center',}}>
                             {this._changeText(rowData,sectionID,rowID)}
@@ -104,6 +121,8 @@ export default class Set extends Component {
                 </View>
             );
     }
+
+
 
     render() {
         return (
