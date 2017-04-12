@@ -47,7 +47,7 @@ const DefaultTabBar = React.createClass({
       onPress={() => onPressHandler(page)}
     >
       <View style={[styles.tab, this.props.tabStyle, ]}>
-        <Text style={[{color: textColor, fontWeight, }, textStyle, ]}>
+        <Text style={[{color: textColor, fontWeight,}, textStyle, ]} >
           {name}
         </Text>
       </View>
@@ -63,7 +63,6 @@ const DefaultTabBar = React.createClass({
       height: 4,
       backgroundColor: 'navy',
       bottom: 0,
-
     };
 
     const left = this.props.scrollValue.interpolate({
