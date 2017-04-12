@@ -16,6 +16,7 @@ import Share from  './Share/Share'
 import Coupon from './Coupon/Coupon'
 import Feedback from './Feedback/Feedback'
 import Set from './Set/Set'
+import AllOrder from './Order/AllOrder'
 
 const DI = require('Dimensions');
 const WINDOW = DI.get('window');
@@ -102,6 +103,16 @@ export default class My extends Component {
     }
 
 
+    _clickOrder(){
+        this.props.navigator.push({
+            component: AllOrder,    // 要跳转的版块
+            passProps: {
+                name: '智通三千'
+            },
+            type: 'Normal'
+        })
+    }
+
     // 返回具体的cell
     _renderRow(rowData, sectionID, rowID) {
         if (rowID == 0 && sectionID == 0) {
@@ -117,7 +128,7 @@ export default class My extends Component {
             );
 
         } else if (sectionID == 1 && rowID == 0) {
-            return (<Order1Cell/>);
+            return (<Order1Cell click={this._clickOrder.bind(this)}/>);
         } else if (sectionID == 1 && rowID == 1) {
             return (
                 <View>

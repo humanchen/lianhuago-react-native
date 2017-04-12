@@ -12,7 +12,7 @@ import {
 export default class Order1Cell extends Component {
   render() {
     return (
-      <TouchableOpacity onPress={()=>{alert('点击了')}}>
+      <TouchableOpacity onPress={this.props.click}>
 
       <View style={styles.container}>
         <View style={{flexDirection:'row',alignItems: 'center',}}>

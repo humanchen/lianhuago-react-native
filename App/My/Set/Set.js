@@ -86,7 +86,7 @@ export default class Set extends Component {
 // 返回具体的cell
     _renderRow(rowData, sectionID, rowID) {
 
-
+         if(rowID!=4)
             return (
                 <TouchableOpacity activeOpacity={0.5} onPress={() => this._pushToDetail(rowID,sectionID)}>
                     <View style={styles.cellView}>
@@ -104,6 +104,24 @@ export default class Set extends Component {
                     </View>
                 </TouchableOpacity>
             );
+         else
+             return (
+                 <TouchableOpacity activeOpacity={1} onPress={() => this._pushToDetail(rowID,sectionID)}>
+                     <View style={styles.cellView}>
+                         <View style={{flexDirection:'row',alignItems: 'center',}}>
+                             {this._changeText(rowData,sectionID,rowID)}
+                             {/*<Text style={styles.textS}>{rowData}</Text>*/}
+                         </View>
+                         <View style={{
+                            flexDirection: 'row',
+                            alignItems: 'center'
+                        }}>
+                             {this._changeRight(rowID,sectionID)}
+
+                         </View>
+                     </View>
+                 </TouchableOpacity>
+             );
 
     }
 
