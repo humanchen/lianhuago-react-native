@@ -6,7 +6,10 @@ import {
 } from 'react-native';
 import TopNavigator from  '../../Common/TopNavigator'
 var ScrollableTabView = require('react-native-scrollable-tab-view');
+// import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 import DefaultTabBar from '../Order/DefaultTabBar'
+import ScrollableTabBar from '../Order/ScrollableTabBar'
+
 export default class AllOrder extends Component {
     _leftItemAction() {
         this.props.navigator.pop();
@@ -21,7 +24,7 @@ export default class AllOrder extends Component {
                     leftImageSource=  {require('../../Image/arrowto_left.png')}
                 />
                 <ScrollableTabView
-                    renderTabBar={() => <DefaultTabBar backgroundColor={'white'}
+                    renderTabBar={() => <ScrollableTabBar backgroundColor={'white'}
                     activeTextColor={'red'}
                     underlineStyle={{backgroundColor:'red',height:2}}
 
@@ -34,6 +37,7 @@ export default class AllOrder extends Component {
                     <Text tabLabel='待发货'/>
                     <Text tabLabel='待收货'/>
                     <Text tabLabel='退货订单'/>
+
 
                 </ScrollableTabView>
             </View>
