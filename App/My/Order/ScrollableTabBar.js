@@ -239,6 +239,6 @@ const styles = StyleSheet.create({
   },
   tabs: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+     justifyContent: 'space-around',
   },
 });
