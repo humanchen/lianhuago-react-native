@@ -12,7 +12,7 @@ import TopNavigator from '../Common/TopNavigator'
 import My from '../My/My'
 import Car from '../Car/Car'
 import Toast, {DURATION} from 'react-native-easy-toast'
-
+import Scan from '../Scan/Scan'
 
 var datalist;
 export default class Main extends Component {
@@ -108,9 +108,8 @@ export default class Main extends Component {
                         selectedTitleStyle={styles.selectedTabText}
                         renderIcon={() => <Image  source={{uri:this.state.item2normal}} style={styles.tabIcon}/>}
                         renderSelectedIcon={() => <Image  source={{uri:this.state.item2select}} style={styles.tabIcon}/>}
-
                         onPress={() => this.setState({ selectedTab: '扫码购' })}>
-                        <FirstPage/>
+                        <Scan/>
                     </TabNavigator.Item>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === '购物车'}
