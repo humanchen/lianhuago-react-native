@@ -244,9 +244,9 @@ export  default class TopNavigator extends Component {
         // 左图片
         nav_leftImage: {
             margin:10,
-            width:25,
-            height:25,
-            resizeMode:'contain',
+            width:20,
+            height:20,
+            resizeMode:'stretch',
         },
 
         // 右Item

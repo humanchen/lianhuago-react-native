@@ -79,6 +79,15 @@ export default class Main extends Component {
       });
     }
 
+    _clickScan(){
+        this.props.navigator.push({
+            component: Scan,    // 要跳转的版块
+            passProps: {
+                name: '智通三千'
+            },
+            type: 'Normal'
+        })
+    }
 
     render() {
         return (
@@ -108,7 +117,7 @@ export default class Main extends Component {
                         selectedTitleStyle={styles.selectedTabText}
                         renderIcon={() => <Image  source={{uri:this.state.item2normal}} style={styles.tabIcon}/>}
                         renderSelectedIcon={() => <Image  source={{uri:this.state.item2select}} style={styles.tabIcon}/>}
-                        onPress={() => this.setState({ selectedTab: '扫码购' })}>
+                        onPress={() => this._clickScan()}>
                         <Scan/>
                     </TabNavigator.Item>
                     <TabNavigator.Item
